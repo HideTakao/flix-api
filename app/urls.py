@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django.urls import path
-from django.http import JsonResponse
-from genres.views import genre_view
+from genres.views import GenreCreateListView,GenreRetriveUpdateDestroyView
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('genres', genre_view, name='genre'),
+    path('genres', GenreCreateListView.as_view(), name='genre'),
+    path('genres/<int:pk>', GenreRetriveUpdateDestroyView.as_view(), name='gente-detail-view'),
 ]
