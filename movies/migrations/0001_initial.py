@@ -17,12 +17,19 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Movie',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                                           serialize=False, verbose_name='ID'
+                                           )),
                 ('title', models.CharField(max_length=500)),
                 ('release_date', models.DateField(blank=True, null=True)),
                 ('resume', models.TextField(blank=True, null=True)),
-                ('actors', models.ManyToManyField(related_name='movies', to='actors.actor')),
-                ('genre', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='movies', to='genres.genre')),
+                ('actors', models.ManyToManyField(
+                    related_name='movies', to='actors.actor'
+                )),
+                ('genre', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT,
+                    related_name='movies', to='genres.genre'
+                )),
             ],
         ),
     ]

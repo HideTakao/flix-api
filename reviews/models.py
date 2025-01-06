@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from movies.models import Movie
 
+
 class Review(models.Model):
     movie = models.ForeignKey(
         Movie,

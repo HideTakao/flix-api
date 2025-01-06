@@ -17,10 +17,29 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Reviews',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('stars', models.IntegerField(validators=[django.core.validators.MinValueValidator(0, 'Avaliação mínima é 0 estrelas'), django.core.validators.MaxValueValidator(5, 'Avaliação máxima é 5 estrelas')])),
-                ('comment', models.TextField(blank=True, null=True)),
-                ('movie', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='reviews', to='movies.movie')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
+                ('stars', models.IntegerField(
+                    validators=[django.core.validators.MinValueValidator(
+                        0, 'Avaliação mínima é 0 estrelas'
+                        ), django.core.validators.MaxValueValidator(
+                            5, 'Avaliação máxima é 5 estrelas'
+                            )
+                        ]
+                    )),
+                ('comment', models.TextField(
+                    blank=True,
+                    null=True
+                    )),
+                ('movie', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT,
+                    related_name='reviews',
+                    to='movies.movie'
+                    )),
             ],
         ),
     ]
